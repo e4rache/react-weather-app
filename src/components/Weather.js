@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Weather = props => {
   const { city, country, description, temperature, humidity, error } = props;
@@ -12,7 +12,7 @@ const Weather = props => {
           </p>
         )}
 
-      {description && <p>Weather : {description}</p>}
+      {description && <p>Condition : {description}</p>}
       {temperature && <p>Temperature: {temperature} C</p>}
       {humidity && <p>Humidity: {humidity} %</p>}
       {error && <p>{error}</p>}

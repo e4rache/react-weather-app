@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import "./App.css";
 
 import Titles from "./components/Titles";
@@ -6,6 +7,7 @@ import Form from "./components/Form";
 import Weather from "./components/Weather";
 
 /* Video tutorial : [Hamza Mirza] https://www.youtube.com/watch?v=204C9yNeOYI&t=1540s */
+
 const API_KEY = "511ec7f3621bd1981185d6aca1830384";
 
 class App extends Component {
