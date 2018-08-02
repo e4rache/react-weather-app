@@ -73,7 +73,7 @@ class App extends Component {
     }
 
     const data = await api_call.json();
-    console.log(data);
+
     if (data.weather) {
       this.setState({
         city: data.name,
