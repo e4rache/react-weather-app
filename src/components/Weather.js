@@ -8,14 +8,32 @@ const Weather = props => {
       {city &&
         country && (
           <p>
-            Location: {city}, {country}
+            <span>Location : </span>
+            <span className="light-red">
+              {city}, {country}
+            </span>
           </p>
         )}
 
-      {description && <p>Condition : {description}</p>}
-      {temperature && <p>Temperature: {temperature} C</p>}
-      {humidity && <p>Humidity: {humidity} %</p>}
-      {error && <p>{error}</p>}
+      {description && (
+        <p>
+          <span>Condition : </span>
+          <span className="light-red">{description}</span>
+        </p>
+      )}
+      {temperature && (
+        <p>
+          <span>Temperature : </span>
+          <span className="light-red">{temperature} C</span>
+        </p>
+      )}
+      {humidity && (
+        <p>
+          <span>Humidity : </span>
+          <span className="light-red">{humidity} %</span>
+        </p>
+      )}
+      {error && <p className="light-red">{error}</p>}
     </div>
   );
 };
