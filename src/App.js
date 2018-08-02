@@ -20,6 +20,34 @@ class App extends Component {
     error: undefined
   };
 
+  async componentWillMount() {
+    const city = "Waterloo";
+    const country = "BE";
+    const api_call = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`
+    );
+    const data = await api_call.json();
+    if (data.weather) {
+      this.setState({
+        city: data.name,
+        country: data.sys.country,
+        temperature: data.main.temp,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: undefined
+      });
+    } else {
+      this.setState({
+        city: undefined,
+        country: undefined,
+        temperature: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: data.message
+      });
+    }
+  }
+
   getWeather = async e => {
     e.preventDefault();
 
@@ -29,8 +57,8 @@ class App extends Component {
     if (!city) {
       city = "Waterloo";
       country = "BE";
-      e.target.elements.city.value = "Waterloo";
-      e.target.elements.country.value = "BE";
+      e.target.elements.city.value = city;
+      e.target.elements.country.value = country;
     }
 
     let api_call;
